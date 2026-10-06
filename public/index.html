@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Echo Arena</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section id="menu" class="panel">
+        <div>
+          <p class="eyebrow">Real-time duel prototype</p>
+          <h1>Echo Arena</h1>
+          <p class="lede">Fight your opponent while echoes of your last moves return to the arena.</p>
+        </div>
+        <div class="actions">
+          <button id="createBtn">Create Room</button>
+          <form id="joinForm">
+            <input id="roomInput" maxlength="5" placeholder="ROOM CODE" autocomplete="off" />
+            <button type="submit">Join Room</button>
+          </form>
+        </div>
+        <div class="guide">
+          <span>Move: A/D or arrows</span>
+          <span>Jump: W/Up/Space</span>
+          <span>Punch: J</span>
+          <span>Kick: K</span>
+          <span>Block: L/Shift</span>
+        </div>
+      </section>
+
+      <section id="game" class="game hidden">
+        <div class="hud">
+          <div class="bar left"><span id="p1Name">Player 1</span><i id="p1Hp"></i></div>
+          <div class="center">
+            <strong id="timer">80</strong>
+            <span id="echoTimer">Echo in 17s</span>
+          </div>
+          <div class="bar right"><span id="p2Name">Player 2</span><i id="p2Hp"></i></div>
+        </div>
+        <canvas id="arena" width="960" height="540"></canvas>
+        <div id="banner" class="banner hidden"></div>
+        <div class="room-card">
+          <span>Room</span>
+          <button id="copyCode" title="Copy room code">-----</button>
+          <small id="status">Waiting</small>
+        </div>
+        <div id="mobileControls" class="mobile-controls">
+          <div class="pad">
+            <button data-control="left">Left</button>
+            <button data-control="right">Right</button>
+            <button data-control="jump">Jump</button>
+          </div>
+          <div class="pad attacks">
+            <button data-control="block">Block</button>
+            <button data-control="punch">Punch</button>
+            <button data-control="kick">Kick</button>
+          </div>
+        </div>
+        <button id="rematch" class="rematch hidden">Rematch</button>
+      </section>
+    </main>
+    <script src="/client.js"></script>
+  </body>
+</html>

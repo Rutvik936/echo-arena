@@ -1,0 +1,278 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #101316;
+  color: #f4f0e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(37, 123, 132, 0.32), transparent 26%),
+    linear-gradient(135deg, #14181c 0%, #22272a 45%, #2a221e 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  background: #f0c15a;
+  color: #1b1712;
+  min-height: 44px;
+  padding: 0 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+input {
+  min-height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.26);
+  color: #fff;
+  padding: 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.panel {
+  width: min(760px, 100%);
+  display: grid;
+  gap: 26px;
+  padding: clamp(24px, 5vw, 44px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(12, 14, 16, 0.78);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #8bd3d0;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 0.9;
+}
+
+.lede {
+  max-width: 540px;
+  color: #d9d0c2;
+  font-size: 1.1rem;
+}
+
+.actions,
+#joinForm {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.guide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #d9d0c2;
+}
+
+.guide span {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.game {
+  width: min(1120px, 100%);
+  position: relative;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.bar {
+  position: relative;
+  height: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.bar span {
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  left: 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.bar.right span {
+  left: auto;
+  right: 10px;
+}
+
+.bar i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #35c78a, #d6e864);
+  transition: width 120ms linear;
+}
+
+.bar.right i {
+  margin-left: auto;
+  background: linear-gradient(90deg, #e56464, #f0c15a);
+}
+
+.center {
+  display: grid;
+  min-width: 112px;
+  text-align: center;
+  color: #f4f0e8;
+}
+
+.center strong {
+  font-size: 1.5rem;
+}
+
+.center span {
+  color: #8bd3d0;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: #15191c;
+  touch-action: none;
+}
+
+.room-card {
+  position: absolute;
+  top: 58px;
+  left: 12px;
+  display: grid;
+  gap: 4px;
+  color: #f4f0e8;
+}
+
+.room-card button {
+  min-height: 34px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.room-card small {
+  color: #d9d0c2;
+}
+
+.banner {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: 900;
+  text-shadow: 0 4px 24px #000;
+}
+
+.rematch {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+}
+
+.mobile-controls {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    align-items: start;
+    padding: 10px;
+  }
+
+  .hud {
+    grid-template-columns: 1fr 76px 1fr;
+    gap: 6px;
+  }
+
+  .center {
+    min-width: 76px;
+  }
+
+  .center span,
+  .bar span {
+    font-size: 0.68rem;
+  }
+
+  .room-card {
+    top: 48px;
+    transform: scale(0.86);
+    transform-origin: top left;
+  }
+
+  .mobile-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .pad {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(54px, 1fr));
+    gap: 8px;
+  }
+
+  .pad button {
+    min-width: 0;
+    padding: 0 10px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
